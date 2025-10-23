@@ -14,10 +14,7 @@ services:
             JWT_SECRET_KEY: ${JWT_SECRET_KEY}
             JWT_EXPIRATION_TIME: ${JWT_EXPIRATION_TIME:-86400000}
             CORS_ALLOWED_ORIGIN: ${CORS_ALLOWED_ORIGIN:-http://localhost:4200}
-        # depends_on:
-        #     db:
-        #         condition: service_healthy
-    
+
     frontend:
         container_name: Frontend
         build:
@@ -26,25 +23,3 @@ services:
         depends_on:
             - backend
 
-
-    # db:
-    #     container_name: stocko_frigo_db
-    #     image: mysql:5.7
-    #     environment:
-    #         MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
-    #         MYSQL_DATABASE: ${DB_NAME}
-    #         MYSQL_USER: ${DB_USER}
-    #         MYSQL_PASSWORD: ${DB_PASSWORD}
-    #     healthcheck:
-    #         test: ['CMD-SHELL', 'mysqladmin ping -h 127.0.0.1 -u${DB_USER} -p${DB_PASSWORD} --silent']
-    #         interval: 5s
-    #         timeout: 5s
-    #         retries: 20
-    #     volumes:
-    #         - db-data:/var/lib/mysql
-    #     networks:
-    #         - proxy
-
-# networks:
-#     proxy:
-#         driver: bridge

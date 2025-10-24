@@ -4,5 +4,8 @@
   },
   "scripts": {
     "prepare": "husky"
+  },
+  "dependencies": {
+    "@angular/animations": "^19.2.15"
   }
 }
